@@ -141,7 +141,6 @@ geotab.addin.startStop = function () {
         api.getSession(function (session) {
             let currentUser = session.userName;
 			console.log(session.userName);
-			console.log(session.id);
 			console.log(session.sessionId);
             api.call('Get', {
                 'typeName': 'User',
