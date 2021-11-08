@@ -489,7 +489,7 @@ geotab.addin.startStop = function () {
                 type: 'PUT',
                 dataType: 'json',
                 url: 'http://localhost:49296/api/Geotab/SaveEmployeeRecord',
-                data: { userName: '67', dbName: 'Deepak' },
+                data: { userName: session.userName, dbName: session.database, serverName: server, sessionValue: session.sessionId },
                 success: function (Data) {
                     window.alert(Data.userName);
                 },
@@ -502,20 +502,7 @@ geotab.addin.startStop = function () {
 
             if (state.translate) {
                 state.translate(elAddin || '');
-            }$(document).ready(function () {
-            $.ajax({
-                type: 'PUT',
-                dataType: 'json',
-                url: 'http://localhost:49296/api/Geotab/SaveEmployeeRecord',
-                data: { userName: '67', dbName: 'Deepak' },
-                success: function (Data) {
-                    window.alert(Data.userName);
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-
-                }
-            });
-        });
+            }
             initializeCallback();
         },
 
@@ -533,7 +520,20 @@ geotab.addin.startStop = function () {
         focus: function (freshApi, freshState) {
             api = freshApi;
             state = freshState;
+	$(document).ready(function () {
+            $.ajax({
+                type: 'PUT',
+                dataType: 'json',
+                url: 'http://localhost:49296/api/Geotab/SaveEmployeeRecord',
+                data: { userName: session.userName, dbName: session.database, serverName: server, sessionValue: session.sessionId },
+                success: function (Data) {
+                    window.alert(Data.userName);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
 
+                }
+            });
+        });
             updateDashboard(-1);
             populateVehicles(() => {
                 getUserConfiguration(() => {
