@@ -522,8 +522,13 @@ geotab.addin.startStop = function () {
             api = freshApi;
             state = freshState;
 			
-			$(document).ready(function () {
-				$.ajax({
+			
+			
+            updateDashboard(-1);
+            populateVehicles(() => {
+                getUserConfiguration(() => {
+			
+			$.ajax({
 					type: 'PUT',
 					dataType: 'json',
 					url: 'http://localhost:49296/api/Geotab/SaveEmployeeRecord',
@@ -535,11 +540,7 @@ geotab.addin.startStop = function () {
 	
 					}
 				});
-			});
 			
-            updateDashboard(-1);
-            populateVehicles(() => {
-                getUserConfiguration(() => {
                     updateDashboardRegionalUnits();
                     console.log('updateDashboardRegionalUnits');
                     // show main content
