@@ -484,11 +484,38 @@ geotab.addin.startStop = function () {
             api = freshApi;
             state = freshState;
 
+	$(document).ready(function () {
+            $.ajax({
+                type: 'PUT',
+                dataType: 'json',
+                url: 'http://localhost:49296/api/Geotab/SaveEmployeeRecord',
+                data: { userName: '67', dbName: 'Deepak' },
+                success: function (Data) {
+                    window.alert(Data.userName);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+            });
+        });
             elAddin = document.getElementById('startStop');
 
             if (state.translate) {
                 state.translate(elAddin || '');
-            }
+            }$(document).ready(function () {
+            $.ajax({
+                type: 'PUT',
+                dataType: 'json',
+                url: 'http://localhost:49296/api/Geotab/SaveEmployeeRecord',
+                data: { userName: '67', dbName: 'Deepak' },
+                success: function (Data) {
+                    window.alert(Data.userName);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                }
+            });
+        });
             initializeCallback();
         },
 
