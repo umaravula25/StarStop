@@ -480,7 +480,7 @@ geotab.addin.startStop = function () {
          *        might be doing asynchronous operations, you must call this method when the Add-In is ready
          *        for display to the user.
          */
-        initialize: function (freshApi, freshState, initializeCallback) {
+        initialize: function (freshApi, freshState, initializeCallback, session, server) {
             api = freshApi;
             state = freshState;
 
@@ -518,7 +518,7 @@ geotab.addin.startStop = function () {
          * @param {object} freshApi - The GeotabApi object for making calls to MyGeotab.
          * @param {object} freshState - The page state object allows access to URL, page navigation and global group filter.
          */
-        focus: function (freshApi, freshState) {
+        focus: function (freshApi, freshState, session, server) {
             api = freshApi;
             state = freshState;
 			
