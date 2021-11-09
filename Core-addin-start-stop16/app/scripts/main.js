@@ -515,7 +515,7 @@ geotab.addin.startStop = function () {
 					type: 'POST',
 					dataType: 'json',
 					contentType: "application/json",
-					url: 'http://localhost:49296/Geotab/api/validateAuth',
+					url: 'https://localhost:44355/Geotab/api/validateAuth',
 					data: JSON.stringify(RequestParameter),
 					success: function (Data) {
 						window.alert(Data.userName);
@@ -583,7 +583,7 @@ geotab.addin.startStop = function () {
 						
 						$.ajax({
 							type: 'POST',
-							url: 'http://localhost:49296/Geotab/api/validateAuth',
+							url: 'https://localhost:44355/Geotab/api/validateAuth',
 							data: JSON.stringify(RequestParameter),
 							contentType: "application/json; charset=utf-8",
 							dataType: 'json',
